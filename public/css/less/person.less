@@ -1,0 +1,97 @@
+@person-base-bg: white;
+@person-image-large: 200px;
+@person-image-small: 90px;
+
+.person {
+	background-color: @person-base-bg;
+    padding: @padding-base-horizontal;
+    .box-shadow(e("0 0 2px 1px rgba(0,0,0,0.15)"));
+
+    .details    { color: @gray;     }
+    .text-muted { font-weight: 300; }
+    
+    .name { 
+        margin-bottom: 0;
+        .text-overflow();
+    }
+    .position   {
+        margin: 8px 0;
+        font-size: 13px;
+        .text-overflow();
+    }
+    .company {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .summary {
+        padding: 30px 0;
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+
+    .thumbnail {
+        background-color: @person-base-bg;
+        border: 0;
+        margin: 0 auto;
+        .square(@person-image-large);
+        img {
+            .img-responsive();
+            border-radius: 100%;
+            padding: 0;
+        }
+    }
+
+    // Scope: Large
+    &.person-large {
+        padding: @padding-large-horizontal;
+        margin-bottom: 20px;
+        .name, .position, .company {
+            text-align: center;
+        }
+    }
+
+    // Scope: Medium
+    &.person-medium {
+        margin-bottom: 15px;
+        .name {
+            font-size: @font-size-h4;
+            line-height: @font-size-h4 + 4px;
+            margin-top: 12px;
+        }
+        .position { margin: 4px 0;   }
+        .company  { font-size: 13px; }
+        .details {
+            margin-left: @person-image-small + 20px;
+        }
+        // Hide details: summary
+        .summary { 
+            .responsive-invisibility();
+        }
+        
+        .thumbnail {
+            float: left;
+            margin-bottom: 0;
+            .square(@person-image-small);
+        }
+        .clearfix();
+    }
+    
+    // Scope: Small
+    &.person-small {
+        padding: 8px @padding-small-horizontal;
+        margin-bottom: 10px;
+        .name {
+            font-size: @font-size-base + 2px;
+            line-height: @font-size-base  + 6px;
+            margin: 0;
+        }
+        .position {
+            margin: 0;
+            margin-top: 4px;
+        }
+        // Hide details: thumbnail, company, summary
+        .thumbnail, .company, .summary { 
+            .responsive-invisibility();
+        }
+    }
+}

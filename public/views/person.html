@@ -1,0 +1,11 @@
+<div class="person">
+    <div class="thumbnail">
+    	<img ng-src="img/{{person.image}}" alt="{{person.fullName}}">
+    </div>
+    <div class="details">
+        <h2 class="name" ng-bind="person.fullName"></h2>
+        <div class="position text-muted"><em ng-bind="person.position"></em></div>
+        <div class="company" ng-bind="person.company"></div>
+        <p class="summary text-muted" ng-bind="person.summary"></p>
+    </div>
+</div>
